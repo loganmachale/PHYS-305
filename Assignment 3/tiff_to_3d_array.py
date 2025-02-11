@@ -18,8 +18,8 @@ def tiff_to_3d_array(filepath):
     """
     images = []
 
-    _, images = cv2.imreadmulti(filepath, mats = images, flags = cv2.IMREAD_UNCHANGED)
+    _, images = cv2.imreadmulti(filepath, mats = images, flags = cv2.IMREAD_GRAYSCALE)
 
     assembled_array = np.stack(images, axis=0)
     
-    return assembled_array
+    return assembled_array.astype(np.uint8)
